@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,14 +11,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
+
 <body>
     <!-- Theme Toggle -->
     <button id="theme-toggle" aria-label="Toggle dark mode">
         <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" stroke-linecap="round" stroke-linejoin="round"/>
+            <path
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                stroke-linecap="round" stroke-linejoin="round" />
         </svg>
         <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                stroke-linecap="round" stroke-linejoin="round" />
         </svg>
     </button>
 
@@ -28,7 +33,7 @@
             <h1 class="names">Kim Thanh <span>&</span> Quỳnh Giao</h1>
             <p class="date">01 . 03 . 2026</p>
             <div class="scroll-indicator">
-                <span>Khám phá</span>
+                <span>and</span>
                 <div class="line"></div>
             </div>
         </div>
@@ -62,17 +67,54 @@
         <div class="container">
             <h2 class="fade-in section-title">Khoảnh Khắc</h2>
             <div class="grid">
-                <div class="grid-item fade-in" style="--delay: 0.1s">
-                    <img src="images/wedding_couple.png" alt="Ảnh cặp đôi" loading="lazy">
+                <div class="grid-item fade-in" style="--delay: 0.1s"><img src="images/wedding_couple_vertical_1.jpg"
+                        alt="Ảnh cặp đôi 1" loading="lazy"></div>
+                <div class="grid-item fade-in" style="--delay: 0.2s"><img src="images/wedding_couple_horizontal_1.jpg"
+                        alt="Nhẫn cưới 1" loading="lazy"></div>
+                <div class="grid-item fade-in" style="--delay: 0.3s"><img src="images/wedding_couple_horizontal_2.jpg"
+                        alt="Không gian 1" loading="lazy"></div>
+                <div class="grid-item fade-in" style="--delay: 0.4s"><img src="images/wedding_couple_vertical_2.jpg"
+                        alt="Trang trí 1" loading="lazy"></div>
+
+                <div class="grid-item fade-in" style="--delay: 0.1s"><img src="images/wedding_couple_vertical_3.jpg"
+                        alt="Ảnh cặp đôi 2" loading="lazy"></div>
+                <div class="grid-item fade-in" style="--delay: 0.2s"><img src="images/wedding_couple_horizontal_3.jpg"
+                        alt="Nhẫn cưới 2" loading="lazy"></div>
+                <div class="grid-item fade-in" style="--delay: 0.3s"><img src="images/wedding_couple_horizontal_4.jpg"
+                        alt="Không gian 2" loading="lazy"></div>
+                <div class="grid-item fade-in" style="--delay: 0.4s"><img src="images/wedding_couple_vertical_4.jpg"
+                        alt="Trang trí 2" loading="lazy"></div>
+
+                <div class="grid-item fade-in" style="--delay: 0.1s"><img src="images/wedding_couple_vertical_5.jpg"
+                        alt="Ảnh cặp đôi 3" loading="lazy"></div>
+                <div class="grid-item fade-in" style="--delay: 0.2s"><img src="images/wedding_couple_horizontal_5.jpg"
+                        alt="Nhẫn cưới 3" loading="lazy"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gift Section / QR Code -->
+    <section class="gift-section">
+        <div class="container fade-in">
+            <h2>Gửi Lời Chúc Gắn Kết</h2>
+            <p class="gift-desc">Tình yêu thương của quý vị là món quà vô giá nhất đối với chúng tôi.<br>Nếu quý vị muốn
+                gửi thêm chút "hiện kim" chung vui, xin vui lòng quét mã bên dưới ạ.</p>
+
+            <div class="qr-container">
+                <div class="qr-card">
+                    <h3>Chú Rể</h3>
+                    <div class="qr-image">
+                        <img src="images/qr.png" alt="QR Chú rể" loading="lazy">
+                    </div>
+                    <p class="bank-info">Ngân hàng Vietcombank<br><strong>9876564321</strong><br>KIM THANH</p>
                 </div>
-                <div class="grid-item fade-in" style="--delay: 0.2s">
-                    <img src="images/wedding_rings.png" alt="Nhẫn cưới" loading="lazy">
-                </div>
-                <div class="grid-item fade-in" style="--delay: 0.3s">
-                    <img src="images/wedding_venue.png" alt="Không gian tiệc cưới" loading="lazy">
-                </div>
-                <div class="grid-item fade-in" style="--delay: 0.4s">
-                    <img src="images/wedding_decor.png" alt="Trang trí bàn tiệc" loading="lazy">
+
+                <div class="qr-card">
+                    <h3>Cô Dâu</h3>
+                    <div class="qr-image">
+                        <img src="images/qr.png" alt="QR Cô dâu" loading="lazy">
+                    </div>
+                    <p class="bank-info">Ngân hàng Vietcombank<br><strong>123456789</strong><br>QUYNH GIAO</p>
                 </div>
             </div>
         </div>
@@ -82,6 +124,14 @@
         <p>Kim Thanh & Quỳnh Giao © 2026. Mãi mãi bên nhau.</p>
     </footer>
 
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" aria-label="Scroll to top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M5 15l7-7 7 7" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+    </button>
+
     <script src="script.js"></script>
 </body>
+
 </html>
