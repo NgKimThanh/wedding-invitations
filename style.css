@@ -1,15 +1,19 @@
 /* style.css */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 
 :root {
     --bg-color: #F9F8F6;
     --text-primary: #1A1C19;
-    --text-secondary: #5C5E58;
-    --accent: #B4A38C;
+    --text-secondary: #4A4C48;
+    /* Darkened for better contrast */
+    --accent: #A68B6A;
+    /* Slightly deeper accent for readability */
     --surface: #FFFFFF;
     --border: #E8E5E1;
     --font-heading: 'Cormorant Garamond', serif;
     --font-body: 'Outfit', sans-serif;
+    --font-elegant: 'Lora', serif;
+    /* Added Lora for specific readable sections */
     --transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -36,9 +40,14 @@ body {
     background-color: var(--bg-color);
     color: var(--text-primary);
     font-family: var(--font-body);
-    line-height: 1.6;
+    font-weight: 400;
+    /* Standard readable weight */
+    line-height: 1.7;
+    /* Increased for better readability */
     transition: background-color var(--transition), color var(--transition);
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 h1,
@@ -47,7 +56,9 @@ h3,
 h4,
 .names {
     font-family: var(--font-heading);
-    font-weight: 400;
+    font-weight: 500;
+    /* Bolder headings */
+    line-height: 1.2;
 }
 
 .container {
@@ -162,23 +173,37 @@ h4,
 .pre-title {
     font-family: var(--font-body);
     text-transform: uppercase;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.3em;
     font-size: 0.9rem;
+    font-weight: 500;
     color: var(--accent);
     margin-bottom: 2rem;
 }
 
 .names {
     font-size: clamp(4rem, 10vw, 8.5rem);
+    font-weight: 700;
+    /* Extra bold for better impact */
     line-height: 1.1;
     margin-bottom: 1.5rem;
-    background: linear-gradient(to right, var(--text-primary) 0%, var(--accent) 50%, var(--text-primary) 100%);
+    background: linear-gradient(to right,
+            var(--text-primary) 0%,
+            var(--accent) 25%,
+            #FFFFFF 50%,
+            var(--accent) 75%,
+            var(--text-primary) 100%);
     background-size: 200% auto;
     color: var(--text-primary);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: shine 8s linear infinite;
+    animation: shine 4s linear infinite;
+    /* Even more dynamic */
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .names {
+    text-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
 }
 
 @keyframes shine {
@@ -190,16 +215,20 @@ h4,
 .names span {
     font-style: italic;
     color: var(--accent);
+    -webkit-text-fill-color: var(--accent);
+    /* Ensure it shows up */
     font-family: var(--font-heading);
-    font-weight: 300;
+    font-weight: 500;
     margin: 0 1rem;
     font-size: 1.1em;
     display: inline-block;
+    filter: drop-shadow(0 0 15px rgba(180, 163, 140, 0.4));
 }
 
 .date {
     font-size: clamp(1.2rem, 3vw, 1.5rem);
-    letter-spacing: 0.3em;
+    font-weight: 500;
+    letter-spacing: 0.4em;
     color: var(--text-secondary);
 }
 
@@ -271,9 +300,11 @@ h4,
 }
 
 .sub-text {
-    font-size: 1.1rem;
+    font-family: var(--font-elegant);
+    font-size: 1.2rem;
     color: var(--text-secondary);
     margin-bottom: 3rem;
+    font-weight: 400;
 }
 
 .divider {
@@ -281,6 +312,134 @@ h4,
     height: 1px;
     background-color: var(--accent);
     margin: 0 auto 4rem;
+}
+
+/* Family Details Section */
+.family-details {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    /* Đảm bảo hai khung cao bằng nhau */
+    gap: 3rem;
+    margin-bottom: 5rem;
+    flex-wrap: wrap;
+}
+
+.family-side {
+    flex: 1 1 350px;
+    /* Chia đều chiều rộng */
+    max-width: 400px;
+    text-align: center;
+    padding: 2.5rem 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    transition: transform 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Đảm bảo nội dung dàn trải đều */
+}
+
+[data-theme="dark"] .family-side {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.family-side:hover {
+    transform: translateY(-5px);
+}
+
+.family-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.parents {
+    font-family: var(--font-elegant);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+    /* Darker for better visibility */
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1.5rem;
+}
+
+.parents::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 1px;
+    background-color: var(--border);
+}
+
+.role {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.person-name {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--text-primary);
+}
+
+.family-heart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: var(--surface);
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    z-index: 2;
+    align-self: center;
+    /* Giữ trái tim ở chính giữa khi hai khối bên cạnh dãn ra */
+}
+
+[data-theme="dark"] .family-heart {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.family-heart svg {
+    width: 24px;
+    height: 24px;
+    animation: heartbeat 2s infinite ease-in-out;
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.15);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.15);
+    }
+
+    60% {
+        transform: scale(1);
+    }
 }
 
 .event-details {
@@ -461,10 +620,12 @@ h4,
 }
 
 .gift-desc {
-    font-size: 1.1rem;
+    font-family: var(--font-elegant);
+    font-size: 1.2rem;
+    line-height: 1.8;
     color: var(--text-secondary);
     margin-bottom: 4rem;
-    max-width: 600px;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -496,11 +657,12 @@ h4,
 
 .qr-card h3 {
     font-size: 1.5rem;
+    font-weight: 600;
     margin-bottom: 2rem;
     font-family: var(--font-body);
     color: var(--text-primary);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
 }
 
 .qr-image {
@@ -526,19 +688,68 @@ h4,
 }
 
 .bank-info {
+    font-family: var(--font-body);
     font-size: 1.1rem;
-    line-height: 1.6;
+    font-weight: 400;
+    line-height: 1.8;
     color: var(--text-secondary);
 }
 
 .bank-info strong {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
+    font-weight: 600;
     color: var(--accent);
     display: block;
     margin: 0.5rem 0;
 }
 
 @media (max-width: 768px) {
+    .names {
+        font-size: clamp(2.2rem, 8vw, 3.5rem);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        line-height: 1.1;
+    }
+
+    .names span {
+        font-size: 0.8em;
+        margin: 0.2rem 0;
+        display: inline-block;
+        line-height: 1;
+        padding: 0;
+        text-align: center;
+        transform: translateX(5%);
+        /* Fine-tune visual centering for the italic cursive font */
+    }
+
+    .scroll-indicator {
+        bottom: -2rem;
+        /* Move it lower on mobile to avoid overlap */
+        transform: translateX(-50%) translateY(20px);
+    }
+
+    .family-details {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .family-side {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .family-heart {
+        transform: rotate(0deg);
+        /* Keep heart pointing up on mobile */
+        margin: 1rem 0;
+    }
+
+    .scroll-indicator .line {
+        height: 30px;
+        /* Make the line shorter on mobile */
+    }
+
     .qr-container {
         gap: 2rem;
     }
@@ -546,6 +757,126 @@ h4,
     .qr-card {
         padding: 2rem;
     }
+}
+
+/* Floating Navigation Menu (Radial) */
+.floating-nav-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+}
+
+.nav-toggle-top {
+    background: var(--surface);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1001;
+    /* Above the menu items */
+}
+
+[data-theme="dark"] .nav-toggle-top {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.nav-toggle-top svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.nav-menu-radial {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 48px;
+    height: 48px;
+    list-style: none;
+    z-index: 1000;
+}
+
+.nav-menu-radial li {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition-delay: calc(0.1s * var(--i));
+    transform-origin: center;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.nav-menu-radial li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--surface);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    transition: var(--transition);
+    position: absolute;
+    bottom: 2px;
+    /* Center relative to 48px */
+    right: 2px;
+}
+
+[data-theme="dark"] .nav-menu-radial li a {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.nav-menu-radial li a svg {
+    width: 18px;
+    height: 18px;
+}
+
+.nav-menu-radial li a:hover {
+    background: var(--accent);
+    color: var(--surface);
+    transform: scale(1.15);
+}
+
+/* Hovering the container expands the menu */
+.floating-nav-top:hover .nav-toggle-top svg {
+    transform: rotate(360deg);
+}
+
+.floating-nav-top:hover .nav-menu-radial li {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Define the positions for each item when expanded (Radial arch towards top-left) */
+.floating-nav-top:hover .nav-menu-radial li:nth-child(1) {
+    transform: translate(-15px, -115px);
+}
+
+.floating-nav-top:hover .nav-menu-radial li:nth-child(2) {
+    transform: translate(-65px, -95px);
+}
+
+.floating-nav-top:hover .nav-menu-radial li:nth-child(3) {
+    transform: translate(-95px, -65px);
+}
+
+.floating-nav-top:hover .nav-menu-radial li:nth-child(4) {
+    transform: translate(-115px, -15px);
 }
 
 /* Scroll to Top Button */
